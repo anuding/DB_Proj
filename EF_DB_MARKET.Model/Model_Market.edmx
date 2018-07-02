@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_MarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_Customer">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cdeposit" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_ImportRecord">
+          <Key>
+            <PropertyRef Name="IRid" />
+          </Key>
+          <Property Name="IRid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pid" Type="nvarchar" MaxLength="50" />
+          <Property Name="IRnum" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_Product">
+          <Key>
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="Pid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pleft" Type="int" Nullable="false" />
+          <Property Name="Ptype" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pprice" Type="float" />
+          <Property Name="Pdiscount" Type="float" />
+        </EntityType>
+        <EntityType Name="TB_ShoppingRecord">
+          <Key>
+            <PropertyRef Name="SRid" />
+          </Key>
+          <Property Name="SRid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pid" Type="nvarchar" MaxLength="50" />
+          <Property Name="SRnum" Type="int" />
+          <Property Name="SRturnover" Type="float" />
+        </EntityType>
+        <EntityContainer Name="db_MarketModelStoreContainer">
+          <EntitySet Name="TB_Customer" EntityType="Self.TB_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ImportRecord" EntityType="Self.TB_ImportRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Product" EntityType="Self.TB_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ShoppingRecord" EntityType="Self.TB_ShoppingRecord" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_MarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_Customer">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cdeposit" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TB_ImportRecord">
+          <Key>
+            <PropertyRef Name="IRid" />
+          </Key>
+          <Property Name="IRid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IRnum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TB_Product">
+          <Key>
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="Pid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pleft" Type="Int32" Nullable="false" />
+          <Property Name="Ptype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pprice" Type="Double" />
+          <Property Name="Pdiscount" Type="Double" />
+        </EntityType>
+        <EntityType Name="TB_ShoppingRecord">
+          <Key>
+            <PropertyRef Name="SRid" />
+          </Key>
+          <Property Name="SRid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SRnum" Type="Int32" />
+          <Property Name="SRturnover" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="db_MarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_Customer" EntityType="Self.TB_Customer" />
+          <EntitySet Name="TB_ImportRecord" EntityType="Self.TB_ImportRecord" />
+          <EntitySet Name="TB_Product" EntityType="Self.TB_Product" />
+          <EntitySet Name="TB_ShoppingRecord" EntityType="Self.TB_ShoppingRecord" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_MarketModelStoreContainer" CdmEntityContainer="db_MarketEntities">
+          <EntitySetMapping Name="TB_Customer">
+            <EntityTypeMapping TypeName="db_MarketModel.TB_Customer">
+              <MappingFragment StoreEntitySet="TB_Customer">
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="Cname" ColumnName="Cname" />
+                <ScalarProperty Name="Cdeposit" ColumnName="Cdeposit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ImportRecord">
+            <EntityTypeMapping TypeName="db_MarketModel.TB_ImportRecord">
+              <MappingFragment StoreEntitySet="TB_ImportRecord">
+                <ScalarProperty Name="IRid" ColumnName="IRid" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+                <ScalarProperty Name="IRnum" ColumnName="IRnum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Product">
+            <EntityTypeMapping TypeName="db_MarketModel.TB_Product">
+              <MappingFragment StoreEntitySet="TB_Product">
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+                <ScalarProperty Name="Pname" ColumnName="Pname" />
+                <ScalarProperty Name="Pleft" ColumnName="Pleft" />
+                <ScalarProperty Name="Ptype" ColumnName="Ptype" />
+                <ScalarProperty Name="Pprice" ColumnName="Pprice" />
+                <ScalarProperty Name="Pdiscount" ColumnName="Pdiscount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ShoppingRecord">
+            <EntityTypeMapping TypeName="db_MarketModel.TB_ShoppingRecord">
+              <MappingFragment StoreEntitySet="TB_ShoppingRecord">
+                <ScalarProperty Name="SRid" ColumnName="SRid" />
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+                <ScalarProperty Name="SRnum" ColumnName="SRnum" />
+                <ScalarProperty Name="SRturnover" ColumnName="SRturnover" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+﻿
+
+Attempting to gather dependency information for package 'EntityFramework.6.2.0' with respect to project 'EF_DB_MARKET.Model', targeting '.NETFramework,Version=v4.6.1'
+Gathering dependency information took 64.57 ms
+Attempting to resolve dependencies for package 'EntityFramework.6.2.0' with DependencyBehavior 'Lowest'
+Resolving dependency information took 0 ms
+Resolving actions to install package 'EntityFramework.6.2.0'
+Resolved actions to install package 'EntityFramework.6.2.0'
+
+
+Attempting to gather dependency information for package 'EntityFramework.6.2.0' with respect to project 'EF_DB_MARKET.DAL', targeting '.NETFramework,Version=v4.6.1'
+Gathering dependency information took 0.71 ms
+Attempting to resolve dependencies for package 'EntityFramework.6.2.0' with DependencyBehavior 'Lowest'
+Resolving dependency information took 0 ms
+Resolving actions to install package 'EntityFramework.6.2.0'
+Resolved actions to install package 'EntityFramework.6.2.0'
+Found package 'EntityFramework 6.2.0' in 'E:\Code_Proj\DB_final\DB_Proj\packages'.
+Package 'EntityFramework.6.2.0' already exists in folder 'E:\Code_Proj\DB_final\DB_Proj\packages'
+Added package 'EntityFramework.6.2.0' to 'packages.config'
+Executing script file 'E:\Code_Proj\DB_final\DB_Proj\packages\EntityFramework.6.2.0\tools\init.ps1'...
+Executing script file 'E:\Code_Proj\DB_final\DB_Proj\packages\EntityFramework.6.2.0\tools\install.ps1'...
+
+Type 'get-help EntityFramework' to see all available Entity Framework commands.
+Successfully installed 'EntityFramework 6.2.0' to EF_DB_MARKET.Model
+Executing nuget actions took 3.73 sec
+Found package 'EntityFramework 6.2.0' in 'E:\Code_Proj\DB_final\DB_Proj\packages'.
+Package 'EntityFramework.6.2.0' already exists in folder 'E:\Code_Proj\DB_final\DB_Proj\packages'
+Added package 'EntityFramework.6.2.0' to 'packages.config'
+Executing script file 'E:\Code_Proj\DB_final\DB_Proj\packages\EntityFramework.6.2.0\tools\install.ps1'...
+
+Type 'get-help EntityFramework' to see all available Entity Framework commands.
+Successfully installed 'EntityFramework 6.2.0' to EF_DB_MARKET.DAL
+Executing nuget actions took 1.31 sec
+Time Elapsed: 00:00:05.2549520
+========== Finished ==========
+

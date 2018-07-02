@@ -1,0 +1,295 @@
+﻿<UserControl  x:Class="DB_Proj.EditTables"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DB_Proj"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <TabControl Name="TabControl1"  Margin="0,0,0,0"  >
+            <TabItem Header="用户信息表">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!--//左部-->
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="7*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <materialDesign:Card Padding="10" Margin="5"  VerticalAlignment="Center">
+                                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"><Run  FontWeight="Bold" Text="编辑用户信息表"/></TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Label Content="Cid:"/>
+                                <TextBox x:Name="txt_Cid_tbCustomer" Width="100"></TextBox>
+                                <Label Content="Cname:"/>
+                                <TextBox x:Name="txt_Cname_tbCustomer" Width="100"></TextBox>
+                                <Label Content="Cdeposit:"/>
+                                <TextBox x:Name="txt_Cdeposit_tbCustomer" Width="100"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Button x:Name="btRefresh_tbCustomer" Click="btRefresh_Click_tbCustomer" Margin="5,5,5,5" Content="添加"/>
+                                <Button x:Name="btDelete_tbCustomer" Click="btDelete_Click_tbCustomer" Margin="5,5,5,5" Content="删除"  FontWeight="Bold" Background="Red"/>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <DataGrid x:Name="dg_Customer" 
+                                       AutoGenerateColumns="False" 
+                                      BeginningEdit="BeginningEdit_tbCustomer" 
+                                      CellEditEnding="CellEditEnding_tbCustomer">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn  Header="Cid"  Binding="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Cname" Binding="{Binding Cname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Cdeposit" Binding="{Binding Cdeposit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                    
+                    <!--右部-->
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="10*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Label Content="查询面板"></Label>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <WrapPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ComboBox x:Name="searchCategory_tbCustomer" Width="50" >
+                                    <!--Margin="5,5,5,5"-->
+                                    <ComboBoxItem IsSelected="True">Cid</ComboBoxItem>
+                                    <ComboBoxItem>Cname</ComboBoxItem>
+                                    <ComboBoxItem>Cdeposit</ComboBoxItem>
+                                </ComboBox>
+                                <ComboBox x:Name="searchTerms_tbCustomer" Width="50">
+                                    <ComboBoxItem IsSelected="True">==</ComboBoxItem>
+                                    <ComboBoxItem>&gt;</ComboBoxItem>
+                                    <ComboBoxItem>&lt;</ComboBoxItem>
+                                </ComboBox>
+                                <TextBox x:Name="searchNums_tbCustomer" HorizontalAlignment="Right" Width="50"></TextBox>
+                            </WrapPanel>
+                           
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button x:Name="btSearch_tbCustomer" Click="btSearch_Click_tbCustomer" Margin="5,5,5,5" HorizontalAlignment="Right" Content="查询"></Button>
+                                <Button x:Name="btReset_tbCustomer" Click="btReset_Click_tbCustomer" Margin="5,5,5,5" HorizontalAlignment="Right" Content="重置" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+                            </WrapPanel>
+                        </Grid>
+                    </Grid>
+                    
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="购买记录表">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--//左部-->
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="7*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <materialDesign:Card Padding="10" Margin="5"  VerticalAlignment="Center">
+                                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"><Run  FontWeight="Bold" Text="编辑购买记录表"/></TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Label Content="SRid:"/>
+                                <TextBox x:Name="txt_SRid_tbShoppingRecord" Width="50"></TextBox>
+                                <Label Content="Cid:"/>
+                                <TextBox x:Name="txt_Cid_tbShoppingRecord" Width="50"></TextBox>
+                                <Label Content="Pid:"/>
+                                <TextBox x:Name="txt_Pid_tbShoppingRecord" Width="50"></TextBox>
+                                <Label Content="SRnum:"/>
+                                <TextBox x:Name="txt_SRnum_tbShoppingRecord" Width="50"></TextBox>
+                                <Label Content="SRturnover:"/>
+                                <TextBox x:Name="txt_SRturnover_tbShoppingRecord" Width="50"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Button x:Name="btRefresh_tbShoppingRecord" Click="btRefresh_Click_tbShoppingRecord" Margin="5,5,5,5" Content="添加"/>
+                                <Button x:Name="btDelete_tbShoppingRecord" Click="btDelete_Click_tbShoppingRecord" Margin="5,5,5,5" Content="删除"  FontWeight="Bold" Background="Red"/>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <DataGrid x:Name="dg_ShoppingRecord" 
+                                       AutoGenerateColumns="False" 
+                                      BeginningEdit="BeginningEdit_tbShoppingRecord" 
+                                      CellEditEnding="CellEditEnding_tbShoppingRecord">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn  Header="SRid"  Binding="{Binding SRid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Cid" Binding="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Pid" Binding="{Binding Pid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <DataGridTextColumn  Header="SRnum" Binding="{Binding SRnum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="SRturnover" Binding="{Binding SRturnover, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+
+                    <!--右部-->
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="10*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Label Content="查询面板"></Label>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <WrapPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ComboBox x:Name="searchCategory_tbShoppingRecord" Width="50" >
+                                    <!--Margin="5,5,5,5"-->
+                                    <ComboBoxItem IsSelected="True">SRid</ComboBoxItem>
+                                    <ComboBoxItem>Cid</ComboBoxItem>
+                                    <ComboBoxItem>Pid</ComboBoxItem>
+                                    <ComboBoxItem>SRnum</ComboBoxItem>
+                                    <ComboBoxItem>SRtakeover</ComboBoxItem>
+                                </ComboBox>
+                                <ComboBox x:Name="searchTerms_tbShoppingRecord" Width="50">
+                                    <ComboBoxItem IsSelected="True">==</ComboBoxItem>
+                                    <ComboBoxItem>&gt;</ComboBoxItem>
+                                    <ComboBoxItem>&lt;</ComboBoxItem>
+                                </ComboBox>
+                                <TextBox x:Name="searchNums_tbShoppingRecord" HorizontalAlignment="Right" Width="50"></TextBox>
+                            </WrapPanel>
+
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button x:Name="btSearch_tbShoppingRecord" Click="btSearch_Click_tbShoppingRecord" Margin="5,5,5,5" HorizontalAlignment="Right" Content="查询"></Button>
+                                <Button x:Name="btReset_tbShoppingRecord" Click="btReset_Click_tbShoppingRecord" Margin="5,5,5,5" HorizontalAlignment="Right" Content="重置" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+                            </WrapPanel>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="产品信息表">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--//左部-->
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="7*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <materialDesign:Card Padding="10" Margin="5"  VerticalAlignment="Center">
+                                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"><Run Text="编辑产品信息表" FontWeight="Bold"/></TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Label Content="Pid:"/>
+                                <TextBox x:Name="txt_Pid_tbProduct" Width="31"></TextBox>
+                                <Label Content="Pname:"/>
+                                <TextBox x:Name="txt_Pname_tbProduct" Width="31"></TextBox>
+                              
+                                <Label Content="Pleft:"/>
+                                <TextBox x:Name="txt_Pleft_tbProduct" Width="31"></TextBox>
+                                <Label Content="Ptype:"/>
+                                <TextBox x:Name="txt_Ptype_tbProduct" Width="31"></TextBox>
+                                <Label Content="Pprice:"/>
+                                <TextBox x:Name="txt_Pprice_tbProduct" Width="31"></TextBox>
+                                <Label Content="Pdiscount:"/>
+                                <TextBox x:Name="txt_Pdiscount_tbProduct" Width="31"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Button x:Name="btRefresh_tbProduct" Click="btRefresh_Click_tbProduct" Margin="5,5,5,5" Content="添加"/>
+                                <Button x:Name="btDelete_tbProduct" Click="btDelete_Click_tbProduct" Margin="5,5,5,5" Content="删除"  FontWeight="Bold" Background="Red"/>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <DataGrid x:Name="dg_Product" 
+                                       AutoGenerateColumns="False" 
+                                      BeginningEdit="BeginningEdit_tbProduct" 
+                                      CellEditEnding="CellEditEnding_tbProduct">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn  Header="Pid"  Binding="{Binding Pid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Pname" Binding="{Binding Pname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Pleft" Binding="{Binding Pleft, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <DataGridTextColumn  Header="Ptype"  Binding="{Binding Ptype, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Pprice" Binding="{Binding Pprice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridTextColumn  Header="Pdiscount" Binding="{Binding Pdiscount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+
+                    <!--右部-->
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="10*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Label Content="查询面板"></Label>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <WrapPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ComboBox x:Name="searchCategory_tbProduct" Width="50" >
+                                    <!--Margin="5,5,5,5"-->
+                                    <ComboBoxItem IsSelected="True">Pid</ComboBoxItem>
+                                    <ComboBoxItem>Pname</ComboBoxItem>
+                                    <ComboBoxItem>Pleft</ComboBoxItem>
+                                    <ComboBoxItem>Ptype</ComboBoxItem>
+                                    <ComboBoxItem>Pprice</ComboBoxItem>
+                                    <ComboBoxItem>Pdiscount</ComboBoxItem>
+                                </ComboBox>
+                                <ComboBox x:Name="searchTerms_tbProduct" Width="50">
+                                    <ComboBoxItem IsSelected="True">==</ComboBoxItem>
+                                    <ComboBoxItem>&gt;</ComboBoxItem>
+                                    <ComboBoxItem>&lt;</ComboBoxItem>
+                                </ComboBox>
+                                <TextBox x:Name="searchNums_tbProduct" HorizontalAlignment="Right" Width="50"></TextBox>
+                            </WrapPanel>
+
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button x:Name="btSearch_tbProduct" Click="btSearch_Click_tbProduct" Margin="5,5,5,5" HorizontalAlignment="Right" Content="查询"></Button>
+                                <Button x:Name="btReset_tbProduct" Click="btReset_Click_tbProduct" Margin="5,5,5,5" HorizontalAlignment="Right" Content="重置" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+                            </WrapPanel>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

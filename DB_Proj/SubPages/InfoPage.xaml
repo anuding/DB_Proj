@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="DB_Proj.SubPages.InfoPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DB_Proj.SubPages"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <materialDesign:Card Padding="32" Margin="5"  VerticalAlignment="Top">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"><Run FontWeight="Bold" Text="作者: 丁子元&#x0a;学号: 20161616&#x0a;&#x0a;重庆大学软件学院"/></TextBlock>
+            
+        </materialDesign:Card>
+    </Grid>
+</UserControl>
