@@ -567,7 +567,7 @@ namespace DB_Proj
         private void BeginningEdit_tbCustomer(object sender, DataGridBeginningEditEventArgs e)
         {
             //将修改前的值保存起来
-            preValue1 = (e.Column.GetCellContent(e.Row) as TextBlock).Text;
+            preValue1 = (e.Column.GetCellContent(e.Row) as TextBlock).Text;//dw
             TB_Customer cus = e.Row.DataContext as TB_Customer;
             preValue1 = cus.Cid;
         }
